@@ -1,0 +1,5 @@
+git clone / git init --> set up new repositories
+git add, git status, git commit --> used when comitting new versions of files
+git log --> view a list of old commits
+git mv, git rm --> move and remove files tracked by Git
+git push, git pull --> synchronize commits with remote repositories
