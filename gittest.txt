@@ -3,3 +3,54 @@ git add, git status, git commit --> used when comitting new versions of files
 git log --> view a list of old commits
 git mv, git rm --> move and remove files tracked by Git
 git push, git pull --> synchronize commits with remote repositories
+------------------------------------------------------------------------------
+GIT BASH:
+
+$ cd /d/programming -> goes to xxx
+$ cd ..  -> returns one layer up
+$ ls     -> list of all files in current directory
+$ ls     -> list of all files in current directory (including hidden files)
+
+
+git init -> converts current directory into a git repository
+git config --global user.email "mujemail@gmail.com" --> adds an email address for each log within git
+git config --global user.name "Jan Novak"  --> adds a name for each log within git
+
+git add xxx.html  -> changes file from untracked to staged
+git status 	  -> returns status of all files in repository
+git commit -m "Commit message" --> commits all files which are staged
+git log 	  -> returns log of all commits
+git log -p 	  -> returns log of all commits including the changes itself
+git diff 	  -> compares content between files and the staging area
+git diff --staged -> compares content of staged files against the previous commit
+rm xxx.html  	  -> deletes (removes) a file from directory (not from git repository!)
+git rm xxx.html   -> deletes (removes) a file in my local repo AND makes it ready for commit (appeard with status "deleted")
+git commit -m "file deleted" -> after git rm, use the commit command to delete it from .git repo
+git mv xxx.html xxx.txt  -> renames a file from html to txt
+
+git reset HEAD xxx.txt       -> moves staged file back to HEAD = makes it unstaged!
+git restore --staged xxx.txt -> moves staged file back to HEAD = makes it unstaged! (same thing like the before)
+
+git restore <file>  -> discards changes in working directory OR restores deleted file
+git checkout -- <file> -> discards changes in working directory OR restores deleted file
+
+git revert <commit ID> -> reverts commit with specific 40letter id "SHA" (only first 5 characters is enough)
+git revert HEAD	       -> reverts last (previous) commit
+If I revert commit accidentaly, I can revert previous revert commit, which will restore it to previous state!
+
+WORKING WITH REMOTE REPOs:
+- before beginning work, I should clone a repo and then keep pulling the latest version of the code to my local repo
+
+git clone <location from> <location to>  -> either a directory or web address; clones repository
+git remote -> returns all set up remote repos (the ones from which we cloned or set up specifically)
+git remote add <nameOfRepo> <URL/Path> -> sets up a remote repo ( git remote add origin https://github.com/trnkatom/repox.git )
+git branch -> returns names of all branches for current repo
+git pull <remote_repo> <branch_name> -> pulls all new changes from selected repo and copies it to current repo to selected branch 
+git push -u <remote_repo> <branch> -> pushes all changes from local repo to remote repo; parameter -u makes this remote repo as default so that next time I can use only: git push 
+If I dont want to type username/password everytime I make a push, it can be specified via SSH!
+
+PUSHING TO GITHUB:
+1) set up local repo on my PC
+2) create empty repo on GitHub
+3) set empty GitHub repo as a remote repo on my PC
+4) push commits from local repo to remote repo
